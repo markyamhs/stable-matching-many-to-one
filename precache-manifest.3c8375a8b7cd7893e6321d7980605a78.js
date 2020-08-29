@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "828e49de546840a4240cc3b8a253459d",
+    "revision": "56631432cff1ac7b6c6f10336c23e2d1",
     "url": "/stable-matching-many-to-one/index.html"
   },
   {
-    "revision": "7d46f57e09a10e897691",
+    "revision": "d6728aa91f026e632fc8",
     "url": "/stable-matching-many-to-one/static/css/main.5f361e03.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/stable-matching-many-to-one/static/js/2.cd91fc1d.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "7d46f57e09a10e897691",
-    "url": "/stable-matching-many-to-one/static/js/main.f71ba0d0.chunk.js"
+    "revision": "d6728aa91f026e632fc8",
+    "url": "/stable-matching-many-to-one/static/js/main.5adb46b4.chunk.js"
   },
   {
     "revision": "fab22fa975346d74ea7f",
