@@ -1,9 +1,10 @@
 import React from "react";
 import "./App.css";
-var gs = require("./algorithm/gs");
+var GS = require("./algorithm/gs");
 
 function App() {
-  console.log(gs);
+  console.log(GS);
+  console.log("testing");
   return (
     <div className="App">
       <div>many to one</div>
