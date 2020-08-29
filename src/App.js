@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import gs from "./algorithm/gs";
+var gs = require("./algorithm/gs");
 
 function App() {
   console.log(gs);

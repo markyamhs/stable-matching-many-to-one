@@ -140,5 +140,4 @@ GS.match = function (typeAs, typeBs, verbose) {
     round++;
   }
 };
-
-export default gs;
+module.exports = gs;
