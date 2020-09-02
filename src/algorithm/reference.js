@@ -34,7 +34,7 @@
     //var copy = this.beget();
     function F() {}
     F.prototype = this;
-    copy = new F();
+    var copy = new F();
 
     // iterate through the properties of the data object which has
     // been passed into this function
@@ -461,5 +461,3 @@
     setup.addEventListener("click", GS.Dom.setup, false);
   };
 })(); // end of anonymous function wrapper
-
-export default gs;

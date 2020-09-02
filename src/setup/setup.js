@@ -1,0 +1,94 @@
+import React, { useContext } from "react";
+import { UserContext } from "../UserContext";
+import IndividualData from "../individual-data/individualData";
+import CollegeData from "../college-data/collegeData";
+
+const Setup = () => {
+  const {
+    stuN,
+    setStuN,
+    colN,
+    setColN,
+    initiated,
+    initiate,
+    setCollegeData,
+    setIndividualData,
+  } = useContext(UserContext);
+  const initialize = (e) => {
+    e.preventDefault();
+    setCollegeData(createCollegeArray(colN));
+    setIndividualData(createIndividualArray(stuN));
+    initiate(true);
+  };
+  const createCollegeArray = (colN) => {
+    let newCollegeArray = [];
+    for (var i = 0; i < colN; i++) {
+      newCollegeArray.push({
+        idx: i,
+        name: `Group ${i}`,
+        quota: 0,
+        preference: Array.from({ length: stuN }, (v, k) => k).map((k) => ({
+          id: `${k}`,
+          content: `Person ${k}`,
+        })),
+      });
+    }
+    return newCollegeArray;
+  };
+  const createIndividualArray = (stuN) => {
+    let newIndividualArray = [];
+    for (var i = 0; i < stuN; i++) {
+      newIndividualArray.push({
+        idx: i,
+        name: `Person ${i}`,
+        preference: Array.from({ length: colN }, (v, k) => k).map((k) => ({
+          id: `${k}`,
+          content: `College ${k}`,
+        })),
+      });
+    }
+    return newIndividualArray;
+  };
+  return (
+    <>
+      <div>
+        <form>
+          <label>
+            No. of individuals (e.g. applicants/trainees/employees):
+          </label>
+          <br />
+          <input
+            type="number"
+            id="stuN"
+            name="stuN"
+            value={stuN}
+            onChange={(e) => setStuN(e.target.value)}
+          />
+          <br />
+          <label>No. of groups (e.g. colleges/teams/departments):</label>
+          <br />
+          <input
+            type="number"
+            id="colN"
+            name="colN"
+            value={colN}
+            onChange={(e) => setColN(e.target.value)}
+          />
+          {initiated ? (
+            <button onClick={initialize}>Reset</button>
+          ) : (
+            <button onClick={initialize}>Set up</button>
+          )}
+        </form>
+      </div>
+      {initiated ? (
+        <>
+          <IndividualData />
+          <CollegeData />
+        </>
+      ) : null}
+    </>
+  );
+};
+
+export default Setup;
