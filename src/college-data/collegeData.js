@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { UserContext } from "../UserContext";
 import CollegeDataStyles from "./collegeData.module.scss";
+import DragPreference from "../dragNdrop/dragPreferrence";
 
 const CollegeData = () => {
   const { collegeData, setCollegeData } = useContext(UserContext);
@@ -44,6 +45,10 @@ const CollegeData = () => {
                   value={collegeData[idx].quota}
                   onChange={(event) => handleChange(event, idx)}
                 />
+              </div>
+              <div>
+                Preference
+                <DragPreference isGroup={true} idx={idx} />
               </div>
             </div>
           );

@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { UserContext } from "../UserContext";
 import IndividualDataStyles from "./individualData.module.scss";
+import DragPreference from "../dragNdrop/dragPreferrence";
 
 const IndividualData = () => {
   const { individualData, setIndividualData } = useContext(UserContext);
@@ -34,6 +35,10 @@ const IndividualData = () => {
                   value={individualData[idx].name}
                   onChange={(event) => handleChange(event, idx)}
                 />
+              </div>
+              <div>
+                Preference
+                <DragPreference isGroup={false} idx={idx} />
               </div>
             </div>
           );

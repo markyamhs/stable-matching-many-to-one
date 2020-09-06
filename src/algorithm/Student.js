@@ -2,12 +2,14 @@ const utils = require("./utils.js");
 const idFactory = new utils.IDFactory();
 
 class Student {
-  constructor() {
+  constructor(name, preferenceList) {
     this.id = idFactory.createID();
     this.matchedWith = null;
     this.nextProposal = 0;
     this.proposedToAll = false;
-    this.name = "";
+    this.name = name;
+    this.priorityList = preferenceList;
+    this.rankingOfMatch = -1;
   }
   setName(name) {
     this.name = name;
@@ -46,6 +48,14 @@ class Student {
     } else {
       return this.id + ": - no priorities -";
     }
+  }
+
+  setRankingOfMatch() {
+    this.rankingOfMatch = this.priorityList.indexOf(this.matchedWith);
+  }
+
+  resetID() {
+    idFactory.reset();
   }
 }
 

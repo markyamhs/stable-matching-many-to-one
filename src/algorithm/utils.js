@@ -10,6 +10,9 @@ class IDFactory {
     this.count += 1;
     return id;
   }
+  reset() {
+    this.count = 0;
+  }
 }
 // const createColleges = (N) => {};
 

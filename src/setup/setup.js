@@ -27,10 +27,7 @@ const Setup = () => {
         idx: i,
         name: `Group ${i}`,
         quota: 0,
-        preference: Array.from({ length: stuN }, (v, k) => k).map((k) => ({
-          id: `${k}`,
-          content: `Person ${k}`,
-        })),
+        preference: Array.from(Array(parseInt(stuN)).keys()),
       });
     }
     return newCollegeArray;
@@ -41,10 +38,7 @@ const Setup = () => {
       newIndividualArray.push({
         idx: i,
         name: `Person ${i}`,
-        preference: Array.from({ length: colN }, (v, k) => k).map((k) => ({
-          id: `${k}`,
-          content: `College ${k}`,
-        })),
+        preference: Array.from(Array(parseInt(colN)).keys()),
       });
     }
     return newIndividualArray;
