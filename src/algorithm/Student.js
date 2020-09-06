@@ -1,5 +1,7 @@
-const utils = require("./utils.js");
-const idFactory = new utils.IDFactory();
+// const utils = require("./utils.js");
+// const idFactory = new utils.IDFactory();
+import { IDFactory } from "./utils.js";
+const idFactory = new IDFactory();
 
 class Student {
   constructor(name, preferenceList) {
@@ -59,4 +61,5 @@ class Student {
   }
 }
 
-module.exports = Student;
+// module.exports = Student;
+export default Student;

@@ -1,6 +1,8 @@
 //wrapper: raw data => config.js => CollegeAdmission.js
-const config = require("./config");
-const CollegeAdmissionProblem = require("./CollegeAdmission");
+import config from "./config";
+import CollegeAdmissionProblem from "./CollegeAdmission";
+// const config = require("./config");
+// const CollegeAdmissionProblem = require("./CollegeAdmission");
 
 function run(stuData, colData) {
   const [studentList, collegeList] = config(stuData, colData);
@@ -25,4 +27,5 @@ function run(stuData, colData) {
   return [stuResult, colResult, problem.log];
 }
 
-module.exports = run;
+export default run;
+// module.exports = run;

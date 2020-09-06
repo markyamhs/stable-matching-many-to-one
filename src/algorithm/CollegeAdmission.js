@@ -1,6 +1,6 @@
 //https://github.com/mgschoen/stable-marriage
 
-class CollegeAdmissionProblem {
+export default class CollegeAdmissionProblem {
   constructor(studentList, collegeList) {
     this.studentList = studentList;
     this.collegeList = collegeList;
@@ -112,4 +112,4 @@ class CollegeAdmissionProblem {
   }
 }
 
-module.exports = CollegeAdmissionProblem;
+// module.exports = CollegeAdmissionProblem;

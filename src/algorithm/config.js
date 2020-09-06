@@ -1,8 +1,10 @@
 //convert raw data from front-end to college/students objects for CollegeAdmission.js
-const Student = require("./Student.js");
-const College = require("./College.js");
+// const Student = require("./Student.js");
+// const College = require("./College.js");
+import Student from "./Student.js";
+import College from "./College.js";
 
-function config(stuData, colData) {
+export default function config(stuData, colData) {
   const studentList = [];
   const collegeList = [];
   stuData.forEach((stu) => {
@@ -17,4 +19,4 @@ function config(stuData, colData) {
   return [studentList, collegeList];
 }
 
-module.exports = config;
+// module.exports = config;
