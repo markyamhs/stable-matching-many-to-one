@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import "./App.css";
 import { UserContext } from "./UserContext";
 import Setup from "./setup/setup";
-// const main = require("./roughPaper");
 import RunAlgorithm from "./run-algorithm/runAlgorithm";
+import Result from "./result/result";
 
 function App() {
-  // main();
   const [stuN, setStuN] = useState(0);
   const [colN, setColN] = useState(0);
   const [initiated, initiate] = useState(false);
@@ -15,6 +14,7 @@ function App() {
   const [collegeResult, setCollegeResult] = useState([]);
   const [individualResult, setIndividualResult] = useState([]);
   const [logDetails, setLogDetails] = useState([]);
+  const [allPairs, setAllPairs] = useState([]);
   return (
     <UserContext.Provider
       value={{
@@ -34,6 +34,8 @@ function App() {
         setIndividualResult,
         logDetails,
         setLogDetails,
+        allPairs,
+        setAllPairs,
       }}
     >
       <div className="App">
@@ -41,6 +43,7 @@ function App() {
         <div>stable matching</div>
         <Setup />
         <RunAlgorithm />
+        <Result />
       </div>
     </UserContext.Provider>
   );

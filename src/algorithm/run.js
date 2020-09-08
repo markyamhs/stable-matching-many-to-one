@@ -12,7 +12,13 @@ function run(stuData, colData) {
     const result = {
       ...stu,
       matchedWith: studentList[index].matchedWith,
+      isMatched: studentList[index].matchedWith !== null,
+      matchedWithName:
+        studentList[index].matchedWith !== null
+          ? collegeList[studentList[index].matchedWith].name
+          : null,
       rankingOfMatch: studentList[index].rankingOfMatch,
+      preferenceNames: stu.preference.map((pos) => collegeList[pos].name),
     };
     return result;
   });
@@ -20,11 +26,34 @@ function run(stuData, colData) {
     const result = {
       ...col,
       matchedWith: collegeList[index].matchedWith,
+      quotaLeft:
+        collegeList[index].quota - collegeList[index].matchedWith.length,
+      matchedWithName:
+        collegeList[index].matchedWith.length > 0
+          ? collegeList[index].matchedWith.map((pos) => studentList[pos].name)
+          : null,
       rankingOfMatch: collegeList[index].rankingOfMatch,
+      preferenceNames: col.preference.map((pos) => studentList[pos].name),
     };
     return result;
   });
-  return [stuResult, colResult, problem.log];
+  let allPairs = stuResult.map((stu, index) => {
+    const result =
+      stu.rankingOfMatch !== -1
+        ? {
+            stuPreference: stu.rankingOfMatch,
+            colPreference: collegeList[
+              studentList[index].matchedWith
+            ].priorityList.indexOf(index),
+            pairing: `${studentList[index].name} <-> ${
+              collegeList[studentList[index].matchedWith].name
+            }`,
+          }
+        : null;
+    return result;
+  });
+  allPairs = allPairs.filter((pair) => pair !== null);
+  return [stuResult, colResult, problem.log, allPairs];
 }
 
 export default run;

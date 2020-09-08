@@ -9,21 +9,22 @@ const RunAlgorithm = () => {
     setCollegeResult,
     individualData,
     setIndividualResult,
-    individualResult,
-    collegeResult,
     logDetails,
     setLogDetails,
+    setAllPairs,
   } = useContext(UserContext);
   const runAlgorithm = (e) => {
     e.preventDefault();
-    const [newIndividualData, newCollegeData, logDetails] = run(
+    const [newIndividualData, newCollegeData, logDetails, allPairs] = run(
       individualData,
       collegeData
     );
     setCollegeResult(newCollegeData);
     setIndividualResult(newIndividualData);
     setLogDetails(logDetails);
+    setAllPairs(allPairs);
   };
+
   return (
     <div>
       {initiated ? (
