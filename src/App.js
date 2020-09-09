@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import { Switch, Route } from "react-router-dom";
 import "./App.css";
 import { UserContext } from "./UserContext";
+import Layout from "./layout/layout";
+import Instructions from "./instructions/instructions";
 import Setup from "./setup/setup";
 import RunAlgorithm from "./run-algorithm/runAlgorithm";
 import Result from "./result/result";
@@ -15,6 +18,7 @@ function App() {
   const [individualResult, setIndividualResult] = useState([]);
   const [logDetails, setLogDetails] = useState([]);
   const [allPairs, setAllPairs] = useState([]);
+
   return (
     <UserContext.Provider
       value={{
@@ -38,13 +42,17 @@ function App() {
         setAllPairs,
       }}
     >
-      <div className="App">
-        <div>many to one</div>
-        <div>stable matching</div>
-        <Setup />
+      <Layout>
+        {/* <Instructions /> */}
+        <Switch>
+          <Route exact path="/" component={Setup} />
+          <Route exact path="/run" component={RunAlgorithm} />
+          <Route exact path="/results" component={Result} />
+        </Switch>
+        {/* <Setup />
         <RunAlgorithm />
-        <Result />
-      </div>
+        <Result /> */}
+      </Layout>
     </UserContext.Provider>
   );
 }

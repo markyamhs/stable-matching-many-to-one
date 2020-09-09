@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 import { UserContext } from "../UserContext";
+import Overlay from "../overlay/overlay";
+import Instructions from "../instructions/instructions";
 import IndividualData from "../individual-data/individualData";
 import CollegeData from "../college-data/collegeData";
 
@@ -45,8 +47,13 @@ const Setup = () => {
   };
   return (
     <>
+      <Instructions />
       <div>
+        <div>Step 1. Initialize</div>
         <form>
+          <div>
+            Party A <Overlay />
+          </div>
           <label>
             No. of individuals (e.g. applicants/trainees/employees):
           </label>
