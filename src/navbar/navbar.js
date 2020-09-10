@@ -10,21 +10,45 @@ const NavBar = () => {
       sticky="top"
       className="d-flex justify-content-between"
     >
-      <Navbar.Brand as={Link} to="/">
+      <Navbar.Brand as={Link} to="/stable-matching-many-to-one/">
         Matching Optimizier
       </Navbar.Brand>
       <Nav className="mr-5">
-        <Nav.Link as={Link} to="/">
+        <Nav.Link as={Link} to="/stable-matching-many-to-one/step1">
           1. Initialize
         </Nav.Link>
-        <Nav.Link href="#features">2. Set Preferences</Nav.Link>
-        <Button variant="outline-info">3. Begin matching</Button>
+        <Nav.Link as={Link} to="/stable-matching-many-to-one/step2">
+          2. Set Preferences
+        </Nav.Link>
+        <Button
+          variant="primary"
+          //   variant="outline-info"
+          as={Link}
+          to="/stable-matching-many-to-one/step3"
+        >
+          3. Begin matching
+        </Button>
         <NavDropdown title="4. View Results" id="basic-nav-dropdown">
-          <NavDropdown.Item href="#action/3.1">Spreadsheets</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.3">Charts</NavDropdown.Item>
+          <NavDropdown.Item
+            as={Link}
+            to="/stable-matching-many-to-one/step4/spreadsheets"
+          >
+            Spreadsheets
+          </NavDropdown.Item>
+          <NavDropdown.Item
+            as={Link}
+            to="/stable-matching-many-to-one/step4/charts"
+          >
+            Charts
+          </NavDropdown.Item>
           <NavDropdown.Item href="#action/3.2">Log</NavDropdown.Item>
           <NavDropdown.Divider />
-          <NavDropdown.Item href="#action/3.4">Log as txt</NavDropdown.Item>
+          <NavDropdown.Item
+            as={Link}
+            to="/stable-matching-many-to-one/step4/logtxt"
+          >
+            Log as txt
+          </NavDropdown.Item>
         </NavDropdown>
       </Nav>
     </Navbar>

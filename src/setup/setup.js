@@ -1,11 +1,9 @@
 import React, { useContext } from "react";
 import { UserContext } from "../UserContext";
 import Overlay from "../overlay/overlay";
-import Instructions from "../instructions/instructions";
-import IndividualData from "../individual-data/individualData";
-import CollegeData from "../college-data/collegeData";
+import { Button } from "react-bootstrap";
 
-const Setup = () => {
+const Setup = ({ history }) => {
   const {
     stuN,
     setStuN,
@@ -21,6 +19,7 @@ const Setup = () => {
     setCollegeData(createCollegeArray(colN));
     setIndividualData(createIndividualArray(stuN));
     initiate(true);
+    history.push("/stable-matching-many-to-one/step2");
   };
   const createCollegeArray = (colN) => {
     let newCollegeArray = [];
@@ -46,49 +45,57 @@ const Setup = () => {
     return newIndividualArray;
   };
   return (
-    <>
-      <Instructions />
+    <div>
+      <h3>Step 1. Initialize</h3>
       <div>
-        <div>Step 1. Initialize</div>
-        <form>
-          <div>
-            Party A <Overlay />
-          </div>
-          <label>
-            No. of individuals (e.g. applicants/trainees/employees):
-          </label>
-          <br />
-          <input
-            type="number"
-            id="stuN"
-            name="stuN"
-            value={stuN}
-            onChange={(e) => setStuN(e.target.value)}
-          />
-          <br />
-          <label>No. of groups (e.g. colleges/teams/departments):</label>
-          <br />
-          <input
-            type="number"
-            id="colN"
-            name="colN"
-            value={colN}
-            onChange={(e) => setColN(e.target.value)}
-          />
-          {initiated ? (
-            <button onClick={initialize}>Reset</button>
-          ) : (
-            <button onClick={initialize}>Set up</button>
-          )}
-        </form>
+        Party A{" "}
+        <Overlay
+          title="Party A"
+          content={
+            <div>
+              Party A represents the <strong>student/applicant side</strong>{" "}
+              which can only be matched with at most one member of party B.
+            </div>
+          }
+        />
       </div>
-      {initiated ? (
-        <>
-          <IndividualData />
-          <CollegeData />
-        </>
-      ) : null}
-    </>
+      <form>
+        <label>No. of individuals (e.g. applicants/trainees/employees):</label>
+        <br />
+        <input
+          type="number"
+          id="stuN"
+          name="stuN"
+          value={stuN}
+          onChange={(e) => setStuN(e.target.value)}
+        />
+        <br />
+        <div>
+          Party B{" "}
+          <Overlay
+            title="Party B"
+            content={
+              <div>
+                Party B represents the <strong>college/hospital side</strong>{" "}
+                with a positive integral quota equal or larger than 1
+              </div>
+            }
+          />
+        </div>
+        <label>No. of Party B (e.g. colleges/teams/departments):</label>
+        <br />
+        <input
+          type="number"
+          id="colN"
+          name="colN"
+          value={colN}
+          onChange={(e) => setColN(e.target.value)}
+        />
+        <Button onClick={initialize} variant="primary" className="d-block">
+          {initiated ? "Reset" : "Set up"}
+        </Button>
+      </form>
+    </div>
   );
 };
 

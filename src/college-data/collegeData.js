@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { UserContext } from "../UserContext";
+import { Table } from "react-bootstrap";
 import CollegeDataStyles from "./collegeData.module.scss";
 import DragPreference from "../dragNdrop/dragPreferrence";
 
@@ -20,41 +21,49 @@ const CollegeData = () => {
     setCollegeData(newCollegeData);
   };
   return (
-    <>
-      <form>
-        {collegeData.map((ele, idx) => {
-          return (
-            <div key={idx} className={CollegeDataStyles.rowContainer}>
-              <div>Group {idx}</div>
-              <div>
-                Name
-                <input
-                  type="text"
-                  id={`college-${idx}-name`}
-                  name="name"
-                  value={collegeData[idx].name}
-                  onChange={(event) => handleChange(event, idx)}
-                />
-              </div>
-              <div>
-                Quota
-                <input
-                  type="number"
-                  id={`college-${idx}-quota`}
-                  name="quota"
-                  value={collegeData[idx].quota}
-                  onChange={(event) => handleChange(event, idx)}
-                />
-              </div>
-              <div>
-                Preference
-                <DragPreference isGroup={true} idx={idx} />
-              </div>
-            </div>
-          );
-        })}
-      </form>
-    </>
+    <div className={CollegeDataStyles.table}>
+      <Table responsive="xl" size="sm" striped bordered hover variant="dark">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Quota</th>
+            <th>Preferences</th>
+          </tr>
+        </thead>
+        <tbody>
+          {collegeData.map((ele, idx) => {
+            return (
+              <tr>
+                <td>{idx}</td>
+                <td>
+                  {" "}
+                  <input
+                    type="text"
+                    id={`college-${idx}-name`}
+                    name="name"
+                    value={collegeData[idx].name}
+                    onChange={(event) => handleChange(event, idx)}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="number"
+                    id={`college-${idx}-quota`}
+                    name="quota"
+                    value={collegeData[idx].quota}
+                    onChange={(event) => handleChange(event, idx)}
+                  />
+                </td>
+                <td>
+                  <DragPreference isGroup={true} idx={idx} />
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </Table>
+    </div>
   );
 };
 

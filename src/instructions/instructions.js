@@ -44,7 +44,7 @@ const PageTwo = [
   </div>,
 ];
 const PageThree = [
-  <div>Step 1: Define party A and B</div>,
+  <div>Step 1: Set sizes of party A and B</div>,
   <div>
     <div>
       Party A (Persons): Collection of persons who will only be matched to one
@@ -56,11 +56,40 @@ const PageThree = [
     </div>
     <div>
       In{" "}
-      <Button variant="primary" className="m-2">
+      <Button variant="dark" className="m-2">
         1. Initialize
       </Button>
-      You will set the numbers of members for party A and B respectively, and
-      also set the quota for each of the member in party B.
+      You will set the numbers of members for party A and B respectively.
+    </div>
+  </div>,
+];
+const PageFour = [
+  <div>Step 2: Set preferences of each instances of party A and B</div>,
+  <div>
+    <div>
+      In{" "}
+      <Button variant="dark" className="m-2">
+        2. Set Preferences
+      </Button>
+      You will set the preferences of each instances of party A and B
+      respectively, and also set the quota for each of the member in party B.
+    </div>
+  </div>,
+];
+const PageFive = [
+  <div>Step 3: Set which side to favour</div>,
+  <div>
+    <div>
+      The outcome of the Gale–Shapley algorithm, guarantees that the matching it
+      produces is either optimal for the participants on one side of the
+      matching, or for the participants on the other side.
+    </div>
+    <div>
+      In{" "}
+      <Button variant="primary" className="m-2">
+        3. Begin matching
+      </Button>
+      You will define which side is the favoured side.
     </div>
   </div>,
 ];
@@ -78,6 +107,12 @@ const Instructions = () => {
       break;
     case 3:
       [title, content] = PageThree;
+      break;
+    case 4:
+      [title, content] = PageFour;
+      break;
+    case 5:
+      [title, content] = PageFive;
       break;
     default:
     // code block
