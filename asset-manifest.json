@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/stable-matching-many-to-one/static/css/main.22a86775.chunk.css",
-    "main.js": "/stable-matching-many-to-one/static/js/main.9e9f454b.chunk.js",
-    "main.js.map": "/stable-matching-many-to-one/static/js/main.9e9f454b.chunk.js.map",
+    "main.css": "/stable-matching-many-to-one/static/css/main.965edefc.chunk.css",
+    "main.js": "/stable-matching-many-to-one/static/js/main.09438b40.chunk.js",
+    "main.js.map": "/stable-matching-many-to-one/static/js/main.09438b40.chunk.js.map",
     "runtime-main.js": "/stable-matching-many-to-one/static/js/runtime-main.12c55c6c.js",
     "runtime-main.js.map": "/stable-matching-many-to-one/static/js/runtime-main.12c55c6c.js.map",
     "static/css/2.2ef05893.chunk.css": "/stable-matching-many-to-one/static/css/2.2ef05893.chunk.css",
-    "static/js/2.d45f5edd.chunk.js": "/stable-matching-many-to-one/static/js/2.d45f5edd.chunk.js",
-    "static/js/2.d45f5edd.chunk.js.map": "/stable-matching-many-to-one/static/js/2.d45f5edd.chunk.js.map",
+    "static/js/2.26d8edc1.chunk.js": "/stable-matching-many-to-one/static/js/2.26d8edc1.chunk.js",
+    "static/js/2.26d8edc1.chunk.js.map": "/stable-matching-many-to-one/static/js/2.26d8edc1.chunk.js.map",
     "index.html": "/stable-matching-many-to-one/index.html",
-    "precache-manifest.d09e9e81cf87e4d08abd3466c4fe1219.js": "/stable-matching-many-to-one/precache-manifest.d09e9e81cf87e4d08abd3466c4fe1219.js",
+    "precache-manifest.0a388a36b38b2a6a07fc319e5506abef.js": "/stable-matching-many-to-one/precache-manifest.0a388a36b38b2a6a07fc319e5506abef.js",
     "service-worker.js": "/stable-matching-many-to-one/service-worker.js",
     "static/css/2.2ef05893.chunk.css.map": "/stable-matching-many-to-one/static/css/2.2ef05893.chunk.css.map",
-    "static/css/main.22a86775.chunk.css.map": "/stable-matching-many-to-one/static/css/main.22a86775.chunk.css.map",
-    "static/js/2.d45f5edd.chunk.js.LICENSE.txt": "/stable-matching-many-to-one/static/js/2.d45f5edd.chunk.js.LICENSE.txt"
+    "static/css/main.965edefc.chunk.css.map": "/stable-matching-many-to-one/static/css/main.965edefc.chunk.css.map",
+    "static/js/2.26d8edc1.chunk.js.LICENSE.txt": "/stable-matching-many-to-one/static/js/2.26d8edc1.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.12c55c6c.js",
     "static/css/2.2ef05893.chunk.css",
-    "static/js/2.d45f5edd.chunk.js",
-    "static/css/main.22a86775.chunk.css",
-    "static/js/main.9e9f454b.chunk.js"
+    "static/js/2.26d8edc1.chunk.js",
+    "static/css/main.965edefc.chunk.css",
+    "static/js/main.09438b40.chunk.js"
   ]
 }
