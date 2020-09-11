@@ -22,13 +22,13 @@ const CollegeData = () => {
   };
   return (
     <div className={CollegeDataStyles.table}>
-      <Table responsive="xl" size="sm" striped bordered hover variant="dark">
+      <Table size="sm" striped bordered hover variant="dark">
         <thead>
           <tr>
             <th>#</th>
             <th>Name</th>
             <th>Quota</th>
-            <th>Preferences</th>
+            <th>Preferences (leftmost being most preferred)</th>
           </tr>
         </thead>
         <tbody>

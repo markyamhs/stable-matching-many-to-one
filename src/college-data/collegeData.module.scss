@@ -1,5 +1,7 @@
 .table {
-  max-width: 80%;
+  margin: auto;
+  width: 100%;
+  white-space: nowrap;
   max-height: 300px;
   overflow: scroll;
 }

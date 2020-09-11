@@ -1,4 +1,7 @@
-.rowContainer {
-  display: flex;
-  flex-direction: row;
+.table {
+  margin: auto;
+  width: 100%;
+  white-space: nowrap;
+  max-height: 300px;
+  overflow: scroll;
 }
