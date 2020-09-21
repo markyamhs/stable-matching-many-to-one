@@ -14,12 +14,16 @@ const RunAlgorithm = ({ history }) => {
     logDetails,
     setLogDetails,
     setAllPairs,
+    isFavorStudent,
+    setIsFavorStudent,
   } = useContext(UserContext);
+
   const runAlgorithm = (e) => {
     e.preventDefault();
     const [newIndividualData, newCollegeData, logDetails, allPairs] = run(
       individualData,
-      collegeData
+      collegeData,
+      isFavorStudent
     );
     setCollegeResult(newCollegeData);
     setIndividualResult(newIndividualData);
@@ -41,6 +45,10 @@ const RunAlgorithm = ({ history }) => {
                 type="radio"
                 id="inline-radio-1"
                 name="exampleRadios"
+                checked={isFavorStudent}
+                onChange={() => {
+                  setIsFavorStudent(true);
+                }}
               />
               <Form.Check
                 inline
@@ -48,6 +56,10 @@ const RunAlgorithm = ({ history }) => {
                 type="radio"
                 id="inline-radio-2"
                 name="exampleRadios"
+                checked={!isFavorStudent}
+                onChange={() => {
+                  setIsFavorStudent(false);
+                }}
               />
             </div>
           </Form>

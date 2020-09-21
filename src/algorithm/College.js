@@ -10,12 +10,26 @@ class College {
     this.appliedBy = [];
     this.quota = quota;
     this.nextProposal = 0;
+    this.proposedToAll = false;
     this.name = name;
     this.priorityList = preferenceList;
     this.rankingOfMatch = [];
   }
   setName(name) {
     this.name = name;
+  }
+  proposeTo() {
+    const remainingQuota = this.quota - this.matchedWith.length;
+    const proposeList = this.priorityList.slice(
+      this.nextProposal,
+      this.nextProposal + remainingQuota
+    );
+    this.nextProposal = this.nextProposal + remainingQuota;
+    if (this.nextProposal === this.priorityList.length) {
+      this.proposedToAll = true;
+    }
+
+    return proposeList;
   }
   reviewWaitingList() {
     if (this.appliedBy.length === 0) {

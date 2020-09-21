@@ -22,6 +22,7 @@ function App() {
   const [individualResult, setIndividualResult] = useState([]);
   const [logDetails, setLogDetails] = useState([]);
   const [allPairs, setAllPairs] = useState([]);
+  const [isFavorStudent, setIsFavorStudent] = useState(false);
 
   return (
     <UserContext.Provider
@@ -44,6 +45,8 @@ function App() {
         setLogDetails,
         allPairs,
         setAllPairs,
+        isFavorStudent,
+        setIsFavorStudent,
       }}
     >
       <Layout>

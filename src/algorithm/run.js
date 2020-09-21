@@ -4,10 +4,10 @@ import CollegeAdmissionProblem from "./CollegeAdmission";
 // const config = require("./config");
 // const CollegeAdmissionProblem = require("./CollegeAdmission");
 
-function run(stuData, colData) {
+function run(stuData, colData, isFavorStudent) {
   const [studentList, collegeList] = config(stuData, colData);
   let problem = new CollegeAdmissionProblem(studentList, collegeList);
-  problem.match();
+  problem.match(isFavorStudent);
   const stuResult = stuData.map((stu, index) => {
     const result = {
       ...stu,
