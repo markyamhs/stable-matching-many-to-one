@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { UserContext } from "../UserContext";
 import Overlay from "../overlay/overlay";
-import { Button } from "react-bootstrap";
+import { Button, Modal } from "react-bootstrap";
 
 const Setup = ({ history }) => {
   const {
@@ -14,12 +14,17 @@ const Setup = ({ history }) => {
     setCollegeData,
     setIndividualData,
   } = useContext(UserContext);
+  const [showModal, setShowModal] = useState(false);
   const initialize = (e) => {
     e.preventDefault();
-    setCollegeData(createCollegeArray(colN));
-    setIndividualData(createIndividualArray(stuN));
-    initiate(true);
-    history.push("/stable-matching-many-to-one/step2");
+    if (colN == 0 || stuN == 0) {
+      setShowModal(true);
+    } else {
+      setCollegeData(createCollegeArray(colN));
+      setIndividualData(createIndividualArray(stuN));
+      initiate(true);
+      history.push("/stable-matching-many-to-one/step2");
+    }
   };
   const createCollegeArray = (colN) => {
     let newCollegeArray = [];
@@ -95,6 +100,28 @@ const Setup = ({ history }) => {
           {initiated ? "Reset" : "Set up"}
         </Button>
       </form>
+      <Modal
+        show={showModal}
+        onHide={() => setShowModal(false)}
+        backdrop="static"
+        keyboard={false}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Invalid input</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Sizes of party A/B must be larger than zero!</Modal.Body>
+        <Modal.Footer className="d-flex justify-content-between">
+          <div>
+            <Button
+              variant="secondary"
+              className="m-2"
+              onClick={() => setShowModal(false)}
+            >
+              OK
+            </Button>
+          </div>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };
